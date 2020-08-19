@@ -1,20 +1,12 @@
 import React from 'react';
+import {CoursePart} from './index';
 
-interface Course {
-    name: string;
-    exerciseCount: number;
-}
-
-interface TotalProps {
-    courses: Course[];
-}
-
-const Total: React.FC<TotalProps> = (props: TotalProps) => {
-    const {courses} = props;
+const Total: React.FC<{courseParts: CoursePart[]}> = (props) => {
+    const {courseParts} = props;
     return(
         <p>
         Number of exercises{" "}
-        {courses.reduce((carry, part) => carry + part.exerciseCount, 0)}
+        {courseParts.reduce((carry, part) => carry + part.exerciseCount, 0)}
       </p>
     )
 }
